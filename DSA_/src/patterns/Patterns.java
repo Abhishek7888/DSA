@@ -1,6 +1,5 @@
 package patterns;
 
-import java.time.chrono.MinguoChronology;
 import java.util.Scanner;
 
 public class Patterns {
