@@ -67,10 +67,42 @@ public class BasicMaths {
 		}
 	}
 
+	// check prime number
+	public static void checkPrime(int n) {
+		int count = 0;
+		for (int i = 1; i * i <= n; i++) {
+			if (n % i == 0) {
+				count++;
+				if ((n % i) != i) {
+					count++;
+				}
+			}
+		}
+		if (count == 2) {
+			System.out.println("true");
+		} else {
+			System.out.println("false");
+		}
+	}
+
+	public static void gcd(int a, int b) {
+		while (a > 0 && b > 0) {
+			if (a > b)
+				a = a % b;
+			else
+				b = b % a;
+		}
+		if (a == 0)
+			System.out.println(b);
+		else
+			System.out.println(a);
+	}
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int num = sc.nextInt();
-		printDivisor(num);
+		int num2 = sc.nextInt();
+		gcd(num, num2);
 
 	}
 
