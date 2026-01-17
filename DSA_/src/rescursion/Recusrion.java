@@ -58,10 +58,85 @@ public class Recusrion {
 		System.err.println(a);
 	}
 
+	// by parameterized way
+	static void printSum(int a, int sum) {
+		if (a < 1) {
+			System.out.println(sum);
+			return;
+		}
+		printSum(a - 1, sum + a);
+	}
+
+	static int printSumf(int a) {
+		if (a == 0) {
+			return 0;
+		}
+		return a + printSumf(a - 1);
+
+	}
+
+	static int factorail(int n) {
+		if (n == 0) {
+			return 1;
+		}
+		return n * factorail(n - 1);
+
+	}
+
+	// Reverse array
+	static void reverseArray(int i, int n, int arr[]) {
+		if (i >= n / 2)
+			return;
+		swap(i, n - i - 1, arr);
+		reverseArray(i + 1, n, arr);
+	}
+
+	// using single index
+	static void reverseArrayS(int l, int r, int arr[]) {
+		if (l >= r)
+			return;
+		swap(l, r, arr);
+		reverseArray(l + 1, r - l - 1, arr);
+	}
+
+	static void swap(int l, int r, int arr[]) {
+		int temp = arr[l];
+		arr[l] = arr[r];
+		arr[r] = temp;
+	}
+
+	static boolean palindrome(int i, int n, String[] s) {
+		if (i >= n / 2)
+			return true;
+		if (s[i] != s[n - i - 1])
+			return false;
+		return palindrome(i + 1, n, s);
+	}
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int a = sc.nextInt();
-		printNto1Back(1, a);
+		// int a = sc.nextInt();
+		// printSum(a, 0);
+		// System.out.println(factorail(a));
+
+//		int n = sc.nextInt();
+//		int arr[] = new int[n];
+//		for (int i = 0; i < arr.length; i++) {
+//			arr[i] = sc.nextInt();
+//		}
+//		reverseArrayS(0, n - 1, arr);
+//		for (int i = 0; i < arr.length; i++) {
+//			System.out.print(arr[i] + " ");
+//		}
+		int n = sc.nextInt();
+		String[] s = new String[n];
+		for (int i = 0; i < s.length; i++) {
+			s[i] = sc.next();
+		}
+		palindrome(0, n-1, s);
+		for (int i = 0; i < s.length; i++) {
+			System.out.print(s[i] + " ");
+		}
 
 	}
 }
