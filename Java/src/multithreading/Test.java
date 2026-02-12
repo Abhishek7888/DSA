@@ -5,6 +5,8 @@ public class Test {
 
 		World world = new World();// NEW
 		Thread t1 = new Thread(world);
+		
+		
 		t1.start();// RUNNABLE
  
 		for (;;) {
