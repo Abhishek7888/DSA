@@ -1,5 +1,6 @@
 package array;
 
+import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Scanner;
 import java.util.Set;
@@ -44,8 +45,8 @@ public class BasicArray {
 	}
 
 	// remove duplicates in place from sorted array
-	
-	//brute force
+
+	// brute force
 	static void removeDuplicates(int arr[], int n) {
 		Set<Integer> set = new LinkedHashSet<Integer>();
 		for (int i = 0; i < n; i++) {
@@ -61,6 +62,54 @@ public class BasicArray {
 		}
 	}
 
+	// optimal approach
+
+	static void removeD(int arr[], int n) {
+		int i = 0;
+		for (int j = 1; j < n; j++) {
+			if (arr[i] != arr[j]) {
+				i++;
+				arr[i] = arr[j];
+
+			}
+		}
+		for (int j = 0; j <= i; j++) {
+			System.out.print(arr[j] + " ");
+		}
+	}
+
+	// left rotate array by 1 place
+
+	static void leftRotate(int arr[], int n) {
+		int temp = arr[0];
+		for (int i = 1; i < n; i++) {
+			arr[i - 1] = arr[i];
+		}
+		arr[n - 1] = temp;
+		for (int i = 0; i < n; i++) {
+			System.out.print(arr[i] + " ");
+		}
+	}
+
+	// left rotate array by b places
+
+	static void leftRotatByN(int arr[], int n, int d) {
+		d = d % n;
+		int temp[] = new int[d];
+		for (int i = 0; i < d; i++) {
+			temp[i] = arr[i];
+		}
+		for (int j = d; j < n; j++) {
+			arr[j - d] = arr[j];
+		}
+		for (int k = n - d; k < n; k++) {
+			arr[k] = temp[k - (n - d)];
+		}
+		for (int i = 0; i < n; i++) {
+			System.out.print(arr[i] + " ");
+		}
+	}
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter number of elements: ");
@@ -70,7 +119,9 @@ public class BasicArray {
 		for (int i = 0; i < n; i++) {
 			arr[i] = sc.nextInt();
 		}
-		removeDuplicates(arr, n);
+		System.out.println("Enter rotation's");
+		int d = sc.nextInt();
+		leftRotatByN(arr, n, d);
 
 	}
 }
