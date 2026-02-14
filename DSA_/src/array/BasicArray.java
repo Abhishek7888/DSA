@@ -30,6 +30,17 @@ public class BasicArray {
 		System.out.println("Second Largest Element : " + sLargest);
 	}
 
+	// find array is sorted or not
+	static boolean sortedA(int arr[], int n) {
+		for (int i = 1; i < n; i++) {
+			if (arr[i] >= arr[i - 1]) {
+			} else {
+				return false;
+			}
+		}
+		return true;
+	}
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter number of elements: ");
@@ -39,7 +50,7 @@ public class BasicArray {
 		for (int i = 0; i < n; i++) {
 			arr[i] = sc.nextInt();
 		}
-		sLargest(arr, n);
+		System.out.println(sortedA(arr, n));
 
 	}
 }
