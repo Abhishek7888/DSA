@@ -139,7 +139,7 @@ public class BasicArray {
 
 	// Move all zeros to the end of array
 
-	//Brute Force approach
+	// Brute Force approach
 	static void moveZeroToEnd(int arr[], int n) {
 
 		// step -1 Move non zero elements into temp array
@@ -167,6 +167,37 @@ public class BasicArray {
 
 	}
 
+	// Move all zeros to the end of array
+
+	// Optimal approach Force approach
+	static void moveZeroToEnd2(int arr[], int n) {
+		int j = -1;
+		for (int i = 0; i < n; i++) {
+			if (arr[i] == 0) {
+				j = i;
+				break;
+			}
+		}
+		if (j == -1) {
+			System.out.println(Arrays.toString(arr));
+			return;
+		}
+		for (int i = j + 1; i < n; i++) {
+			if (arr[i] != 0) {
+				swap(arr, i, j);
+				j++;
+			}
+		}
+		System.out.println(Arrays.toString(arr));
+	}
+
+	static int[] swap(int arr[], int start, int end) {
+		int temp = arr[start];
+		arr[start] = arr[end];
+		arr[end] = temp;
+		return arr;
+	}
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter number of elements: ");
@@ -178,7 +209,7 @@ public class BasicArray {
 		}
 //		System.out.println("Enter rotation's");
 //		int d = sc.nextInt();
-		moveZeroToEnd(arr, n);
+		moveZeroToEnd2(arr, n);
 
 	}
 }
