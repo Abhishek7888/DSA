@@ -139,6 +139,7 @@ public class BasicArray {
 
 	// Move all zeros to the end of array
 
+	//Brute Force approach
 	static void moveZeroToEnd(int arr[], int n) {
 
 		// step -1 Move non zero elements into temp array
