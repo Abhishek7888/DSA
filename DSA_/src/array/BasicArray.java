@@ -198,6 +198,18 @@ public class BasicArray {
 		return arr;
 	}
 
+	// Linear Search
+	static void linearSearch(int arr[], int n, int number) {
+		for (int i = 0; i < n; i++) {
+			if (arr[i] == number) {
+				System.out.println(number + " Number is founded at index : " + i);
+				return;
+			} else {
+				System.out.println("Number is not present in the array");
+			}
+		}
+	}
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter number of elements: ");
@@ -209,7 +221,10 @@ public class BasicArray {
 		}
 //		System.out.println("Enter rotation's");
 //		int d = sc.nextInt();
-		moveZeroToEnd2(arr, n);
+
+		System.out.println(" Enter number to search ");
+		int num = sc.nextInt();
+		linearSearch(arr, n, num);
 
 	}
 }
