@@ -1,5 +1,6 @@
 package array;
 
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Scanner;
@@ -91,7 +92,7 @@ public class BasicArray {
 		}
 	}
 
-	// left rotate array by b places
+	// left rotate array by d places
 
 	static void leftRotatByN(int arr[], int n, int d) {
 		d = d % n;
@@ -110,6 +111,32 @@ public class BasicArray {
 		}
 	}
 
+	static void leftRotateByN2(int arr[], int n, int d) {
+
+		// Step 1: Reverse first d elements
+		reverse(arr, 0, d - 1);
+
+		// Step 2: Reverse remaining n-d elements
+		reverse(arr, d, n - 1);
+
+		// Step 3: Reverse the whole array
+		reverse(arr, 0, n - 1);
+
+		// Print result
+		System.out.println(Arrays.toString(arr));
+
+	}
+
+	static void reverse(int arr[], int start, int end) {
+		while (start < end) {
+			int temp = arr[start];
+			arr[start] = arr[end];
+			arr[end] = temp;
+			start++;
+			end--;
+		}
+	}
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter number of elements: ");
@@ -121,7 +148,7 @@ public class BasicArray {
 		}
 		System.out.println("Enter rotation's");
 		int d = sc.nextInt();
-		leftRotatByN(arr, n, d);
+		leftRotateByN2(arr, n, d);
 
 	}
 }
