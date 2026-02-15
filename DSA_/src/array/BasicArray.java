@@ -137,6 +137,35 @@ public class BasicArray {
 		}
 	}
 
+	// Move all zeros to the end of array
+
+	static void moveZeroToEnd(int arr[], int n) {
+
+		// step -1 Move non zero elements into temp array
+		int temp[] = new int[n];
+		int index = 0;
+		for (int i = 0; i < n; i++) {
+			if (arr[i] != 0) {
+				temp[index++] = arr[i];
+			}
+		}
+
+		// step - 2 Move temp array elements to array
+
+		for (int i = 0; i < temp.length; i++) {
+			arr[i] = temp[i];
+		}
+		int nonZero = temp.length;
+
+		// step - 3 fill remaining array with zeros
+
+		for (int i = nonZero; i < n; i++) {
+			arr[i] = 0;
+		}
+		System.out.println(Arrays.toString(arr));
+
+	}
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter number of elements: ");
@@ -146,9 +175,9 @@ public class BasicArray {
 		for (int i = 0; i < n; i++) {
 			arr[i] = sc.nextInt();
 		}
-		System.out.println("Enter rotation's");
-		int d = sc.nextInt();
-		leftRotateByN2(arr, n, d);
+//		System.out.println("Enter rotation's");
+//		int d = sc.nextInt();
+		moveZeroToEnd(arr, n);
 
 	}
 }
