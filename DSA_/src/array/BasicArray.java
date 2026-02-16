@@ -205,7 +205,8 @@ public class BasicArray {
 				System.out.println(number + " Number is founded at index : " + i);
 				return;
 			} else {
-				System.out.println("Number is not present in the array");
+				System.out.println(number+" Number is not present in the array ");
+				return;
 			}
 		}
 	}

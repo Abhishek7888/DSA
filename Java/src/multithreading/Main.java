@@ -9,7 +9,7 @@ public class Main {
 			@Override
 			public void run() {
 				// TODO Auto-generated method stub
-				ba.withDraw(500);
+				ba.withDraw2(50);
 
 			}
 		};
