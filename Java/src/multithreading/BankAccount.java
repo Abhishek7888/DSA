@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+
 public class BankAccount {
 
 	private int balance = 1000;
@@ -48,8 +49,13 @@ public class BankAccount {
 				System.out.println(
 						Thread.currentThread().getName() + " could not acquire the lock, will try again later");
 			}
-		} catch (InterruptedException e) {
+		} catch (Exception e) {
+			Thread.currentThread().interrupt();
 			e.printStackTrace();
+		}
+		
+		if (Thread.currentThread().isInterrupted()) {
+			System.out.println("");
 		}
 	}
 
