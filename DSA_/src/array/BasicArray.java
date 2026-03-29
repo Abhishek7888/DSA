@@ -1,10 +1,12 @@
 package array;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -214,6 +216,7 @@ public class BasicArray {
 	}
 
 	// Union of two sorted arrays
+	// 1) Brute Force
 	static void union(int arr1[], int arr2[]) {
 
 		Set<Integer> st = new HashSet<>();
@@ -229,6 +232,60 @@ public class BasicArray {
 		System.out.print("Union of two sorted arrays: ");
 		for (int num : st) {
 			System.out.print(num + " ");
+		}
+
+	}
+
+	// Union of two sorted arrays
+	// 2) Optimal approach
+
+	static void union2(int arr1[], int arr2[]) {
+
+		int n1 = arr1.length;
+		int n2 = arr2.length;
+		int i = 0, j = 0;
+
+		List<Integer> union = new ArrayList<>();
+
+		while (i < n1 && j < n2) {
+			if (arr1[i] < arr2[j]) {
+				if (union.isEmpty() || union.get(union.size() - 1) != arr1[i]) {
+					union.add(arr1[i]);
+				}
+				i++;
+			} else if (arr2[j] < arr1[i]) {
+				if (union.isEmpty() || union.get(union.size() - 1) != arr2[j]) {
+					union.add(arr2[j]);
+				}
+				j++;
+			} else { // arr1[i] == arr2[j]
+				if (union.isEmpty() || union.get(union.size() - 1) != arr1[i]) {
+					union.add(arr1[i]);
+				}
+				i++;
+				j++;
+			}
+		}
+
+		// Add remaining elements of arr1
+		while (i < n1) {
+			if (union.isEmpty() || union.get(union.size() - 1) != arr1[i]) {
+				union.add(arr1[i]);
+			}
+			i++;
+		}
+
+		// Add remaining elements of arr2
+		while (j < n2) {
+			if (union.isEmpty() || union.get(union.size() - 1) != arr2[j]) {
+				union.add(arr2[j]);
+			}
+			j++;
+		}
+
+		System.out.print("Union of two sorted arrays: ");
+		for (Integer integer : union) {
+			System.out.print(integer + " ");
 		}
 
 	}
@@ -250,7 +307,7 @@ public class BasicArray {
 			arr2[i] = sc.nextInt();
 		}
 
-		union(arr1, arr2);
+		union2(arr1, arr2);
 //		System.out.println("Enter rotation's");
 //		int d = sc.nextInt();
 //
