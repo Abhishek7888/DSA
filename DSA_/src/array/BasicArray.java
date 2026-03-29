@@ -290,6 +290,35 @@ public class BasicArray {
 
 	}
 
+	// Intersection of two sorted arrays
+	static void intersection(int arr1[], int arr2[]) {
+		int n1 = arr1.length;
+		int n2 = arr2.length;
+
+		List<Integer> list = new ArrayList<Integer>();
+		int visited[] = new int[n2];
+
+		for (int i = 0; i < n1; i++) {
+			for (int j = 0; j < n2; j++) {
+				if (arr1[i] == arr2[j] && visited[j] == 0) {
+					list.add(arr1[i]);
+					visited[j] = 1;
+					break;
+				}
+
+				if (arr2[j] > arr1[i]) {
+					break;
+				}
+			}
+
+		}
+		System.out.println(" Intersection of two sorted arrays : ");
+		for (int i : list) {
+			System.out.print(i + " ");
+		}
+
+	}
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter number of elements: ");
@@ -307,7 +336,7 @@ public class BasicArray {
 			arr2[i] = sc.nextInt();
 		}
 
-		union2(arr1, arr2);
+		intersection(arr1, arr2);
 //		System.out.println("Enter rotation's");
 //		int d = sc.nextInt();
 //
