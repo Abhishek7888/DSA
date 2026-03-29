@@ -1,6 +1,8 @@
 package array;
 
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Scanner;
@@ -205,27 +207,56 @@ public class BasicArray {
 				System.out.println(number + " Number is founded at index : " + i);
 				return;
 			} else {
-				System.out.println(number+" Number is not present in the array ");
+				System.out.println(number + " Number is not present in the array ");
 				return;
 			}
 		}
+	}
+
+	// Union of two sorted arrays
+	static void union(int arr1[], int arr2[]) {
+
+		Set<Integer> st = new HashSet<>();
+
+		for (int i : arr1) {
+			st.add(i);
+		}
+		for (int i : arr2) {
+			st.add(i);
+		}
+
+		// Print union in sorted order
+		System.out.print("Union of two sorted arrays: ");
+		for (int num : st) {
+			System.out.print(num + " ");
+		}
+
 	}
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter number of elements: ");
 		int n = sc.nextInt();
-		int[] arr = new int[n];
+		int[] arr1 = new int[n];
 		System.out.println("Enter array elements:");
 		for (int i = 0; i < n; i++) {
-			arr[i] = sc.nextInt();
+			arr1[i] = sc.nextInt();
 		}
+		System.out.print("Enter number of elements: ");
+		int n2 = sc.nextInt();
+		int[] arr2 = new int[n];
+		System.out.println("Enter array elements:");
+		for (int i = 0; i < n; i++) {
+			arr2[i] = sc.nextInt();
+		}
+
+		union(arr1, arr2);
 //		System.out.println("Enter rotation's");
 //		int d = sc.nextInt();
-
-		System.out.println(" Enter number to search ");
-		int num = sc.nextInt();
-		linearSearch(arr, n, num);
+//
+//		System.out.println(" Enter number to search ");
+//		int num = sc.nextInt();
+//		linearSearch(arr, n, num);
 
 	}
 }
