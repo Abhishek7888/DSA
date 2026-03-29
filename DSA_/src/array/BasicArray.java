@@ -291,6 +291,7 @@ public class BasicArray {
 	}
 
 	// Intersection of two sorted arrays
+	// 1) Brute Force
 	static void intersection(int arr1[], int arr2[]) {
 		int n1 = arr1.length;
 		int n2 = arr2.length;
@@ -319,6 +320,36 @@ public class BasicArray {
 
 	}
 
+	// Intersection of two sorted arrays
+	// 2) optimal approach
+
+	static void intersection2(int arr1[], int arr2[]) {
+		int n1 = arr1.length;
+		int n2 = arr2.length;
+
+		List<Integer> list = new ArrayList<Integer>();
+
+		int i = 0;
+		int j = 0;
+
+		while (i < n1 && j < n2) {
+			if (arr1[i] < arr2[j]) {
+				i++;
+			} else if (arr2[j] < arr1[i]) {
+				j++;
+			} else {
+				list.add(arr1[i]);
+				i++;
+				j++;
+			}
+		}
+		System.out.println("Intersection of two sorted arrays:");
+		for (int val : list) {
+			System.out.print(val + " ");
+		}
+
+	}
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter number of elements: ");
@@ -336,7 +367,7 @@ public class BasicArray {
 			arr2[i] = sc.nextInt();
 		}
 
-		intersection(arr1, arr2);
+		intersection2(arr1, arr2);
 //		System.out.println("Enter rotation's");
 //		int d = sc.nextInt();
 //
