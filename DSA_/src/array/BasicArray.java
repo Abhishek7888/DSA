@@ -351,6 +351,7 @@ public class BasicArray {
 	}
 
 	// Missing number
+	//1) Brute Force approach
 	static void missingNumber(int arr[], int n) {
 
 		for (int i = 1; i < arr.length; i++) {
