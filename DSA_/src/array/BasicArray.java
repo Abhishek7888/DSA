@@ -350,6 +350,23 @@ public class BasicArray {
 
 	}
 
+	// Missing number
+	static void missingNumber(int arr[], int n) {
+
+		for (int i = 1; i < arr.length; i++) {
+			int flag = 0;
+			for (int j = 0; j < arr.length - 1; j++) {
+				if (arr[j] == i) {
+					flag = 1;
+					break;
+				}
+			}
+			if (flag == 0) {
+				System.out.println(" Missing number is : " + i);
+			}
+		}
+	}
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter number of elements: ");
@@ -359,15 +376,15 @@ public class BasicArray {
 		for (int i = 0; i < n; i++) {
 			arr1[i] = sc.nextInt();
 		}
-		System.out.print("Enter number of elements: ");
-		int n2 = sc.nextInt();
-		int[] arr2 = new int[n];
-		System.out.println("Enter array elements:");
-		for (int i = 0; i < n; i++) {
-			arr2[i] = sc.nextInt();
-		}
+//		System.out.print("Enter number of elements: ");
+//		int n2 = sc.nextInt();
+//		int[] arr2 = new int[n];
+//		System.out.println("Enter array elements:");
+//		for (int i = 0; i < n; i++) {
+//			arr2[i] = sc.nextInt();
+//		}
 
-		intersection2(arr1, arr2);
+		missingNumber(arr1, n);
 //		System.out.println("Enter rotation's");
 //		int d = sc.nextInt();
 //
