@@ -420,6 +420,24 @@ public class BasicArray {
 		System.out.println(" Maximum consecutive ones : " + max);
 	}
 
+	// Find the number that appears ones and other's appears twice
+	// 1) Brute Force approach
+	static void singleNum(int arr[], int n) {
+
+		for (int i = 0; i < arr.length; i++) {
+			int num = arr[i];
+			int cnt = 0;
+			for (int j = 0; j < arr.length; j++) {
+				if (arr[j] == num) {
+					cnt++;
+				}
+			}
+			if (cnt == 1) {
+				System.out.println(" The element that appears once is: " + arr[i]);
+			}
+		}
+	}
+	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter number of elements: ");
@@ -437,7 +455,7 @@ public class BasicArray {
 //			arr2[i] = sc.nextInt();
 //		}
 
-		longestCon1(arr1, n);
+		singleNum(arr1, n);
 //		System.out.println("Enter rotation's");
 //		int d = sc.nextInt();
 //
