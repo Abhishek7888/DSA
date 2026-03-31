@@ -3,6 +3,7 @@ package array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
@@ -421,23 +422,55 @@ public class BasicArray {
 	}
 
 	// Find the number that appears ones and other's appears twice
-	// 1) Brute Force approach
-	static void singleNum(int arr[], int n) {
 
+	static void singleNum(int arr[], int n) {
+		// 1) Brute Force approach
+//		for (int i = 0; i < arr.length; i++) {
+//			int num = arr[i];
+//			int cnt = 0;
+//			for (int j = 0; j < arr.length; j++) {
+//				if (arr[j] == num) {
+//					cnt++;
+//				}
+//			}
+//			if (cnt == 1) {
+//				System.out.println(" The element that appears once is: " + arr[i]);
+//			}
+//		}
+		// 2) Better Approach using hashing
+		// i)
+//		int max = arr[0];
+//		for (int i = 0; i < arr.length; i++) {
+//			max = Math.max(max, arr[i]);
+//		}
+//		int hash[] = new int[n];
+//		for (int i = 0; i < hash.length; i++) {
+//			hash[arr[i]]++;
+//		}
+//		for (int i = 0; i < hash.length; i++) {
+//			if (hash[arr[i]] == 1) {
+//				System.out.println(" The element that appears once is: " + arr[i]);
+//			}
+//		}
+		// ii) using hashmap
+//		HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>();
+//		for (int num : arr) {
+//			hm.put(num, hm.getOrDefault(num, 0) + 1);
+//		}
+//		for (int num : arr) {
+//			if (hm.get(num) == 1)
+//				System.out.println(" The element that appears once is: " + num);
+//		}
+
+		// 3) Optimal approach
+
+		int xorr = 0;
 		for (int i = 0; i < arr.length; i++) {
-			int num = arr[i];
-			int cnt = 0;
-			for (int j = 0; j < arr.length; j++) {
-				if (arr[j] == num) {
-					cnt++;
-				}
-			}
-			if (cnt == 1) {
-				System.out.println(" The element that appears once is: " + arr[i]);
-			}
+			xorr = xorr ^ arr[i];
 		}
+		System.out.println(" The element that appears once is: " + xorr);
 	}
-	
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter number of elements: ");
