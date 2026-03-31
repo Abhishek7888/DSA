@@ -351,22 +351,38 @@ public class BasicArray {
 	}
 
 	// Missing number
-	//1) Brute Force approach
+	// 1) Brute Force approach
 	static void missingNumber(int arr[], int n) {
 
-		for (int i = 1; i < arr.length; i++) {
-			int flag = 0;
-			for (int j = 0; j < arr.length - 1; j++) {
-				if (arr[j] == i) {
-					flag = 1;
-					break;
-				}
-			}
-			if (flag == 0) {
-				System.out.println(" Missing number is : " + i);
-			}
-		}
-	}
+		// 1) Brute Force approach
+//		for (int i = 1; i < arr.length; i++) {
+//			int flag = 0;
+//			for (int j = 0; j < arr.length - 1; j++) {
+//				if (arr[j] == i) {
+//					flag = 1;
+//					break;
+//				}
+//			}
+//			if (flag == 0) {
+//				System.out.println(" Missing number is : " + i);
+//			}
+//		}
+
+//		// 2) Better approach using hashing
+//
+//		int hash[] = new int[n + 1];
+//		for (int i = 0; i < n; i++) {
+//			hash[arr[i]] = 1;
+//		}
+//		for (int i = 0; i <= n; i++) {
+//			if (hash[i] == 0) {
+//				System.out.println(" Missing number is : " + i);
+//			}
+//		}	
+		
+		//3) Optimal approach 
+		
+}
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
