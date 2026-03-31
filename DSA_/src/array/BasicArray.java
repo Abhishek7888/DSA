@@ -405,6 +405,21 @@ public class BasicArray {
 
 	}
 
+	// Longest consecutive ones
+	static void longestCon1(int arr[], int n) {
+		int max = 0;
+		int cnt = 0;
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] == 1) {
+				cnt++;
+				max = Math.max(max, cnt);
+			} else {
+				cnt = 0;
+			}
+		}
+		System.out.println(" Maximum consecutive ones : " + max);
+	}
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter number of elements: ");
@@ -422,7 +437,7 @@ public class BasicArray {
 //			arr2[i] = sc.nextInt();
 //		}
 
-		missingNumber(arr1, n);
+		longestCon1(arr1, n);
 //		System.out.println("Enter rotation's");
 //		int d = sc.nextInt();
 //
