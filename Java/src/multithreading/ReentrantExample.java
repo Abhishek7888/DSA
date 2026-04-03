@@ -23,10 +23,10 @@ public class ReentrantExample {
 		lock.lock();
 		try {
 			System.out.println("Inner Method");
-			innerMethod();
+			
 		} finally {
 			lock.unlock();
-		}
+		} 
 
 	}
 
