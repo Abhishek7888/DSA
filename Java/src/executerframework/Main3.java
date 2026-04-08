@@ -20,7 +20,7 @@ public class Main3 {
 		future3.get();
 
 		System.out.println(" All dependent services finished. Starting main service...");
-		executorService.shutdown();
+		executorService.shutdown(); 
 	}
 }
 
