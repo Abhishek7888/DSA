@@ -1,27 +1,41 @@
 package collectionframework.list;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Main {
 
 	public static void main(String[] args) {
 
-		ArrayList<Integer> arrayList = new ArrayList<>();
-		arrayList.add(10);
-		arrayList.add(20);
-		arrayList.add(30);
+		List<String> list = new ArrayList<>();
+		System.out.println(list.getClass().getName());
 
-		System.out.println(arrayList.get(1) + "\n");
-		System.out.println(arrayList.size()+ "\n");
+		List<String> list2 = Arrays.asList("Monday", "Tuesday");
+		System.out.println(list2.getClass().getName());
 
-		for (int i = 0; i < arrayList.size(); i++) {
-			System.out.println(arrayList.get(i));
-		}
-		
-		for (Integer integer : arrayList) {
-			System.out.println(integer);
-		}
-		System.out.println(arrayList.contains(10));
-		System.out.println(arrayList.contains(50));
+		String[] strings = { "Apple", "Banana" };
+		List<String> list3 = Arrays.asList(strings);
+		System.out.println(list3.getClass().getName());
+
+//		ArrayList<Integer> arrayList = new ArrayList<>(11);
+//		arrayList.add(10);
+//		arrayList.add(20);
+//		arrayList.add(30);
+//		
+//		arrayList.set(2, 50);
+//
+//		System.out.println(arrayList.get(2) + "\n");
+//		System.out.println(arrayList.size()+ "\n");
+//
+////		for (int i = 0; i < arrayList.size(); i++) {
+////			System.out.println(arrayList.get(i));
+////		}
+//		
+//		for (Integer integer : arrayList) {
+//			System.out.println(integer);
+//		}
+////		System.out.println(arrayList.contains(10));
+////		System.out.println(arrayList.contains(50));
 	}
 }
