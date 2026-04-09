@@ -52,6 +52,25 @@ public class LongestSubArray {
 		return maxLength;
 	}
 
+	// 3) Optimal approach using two pointers for positives only
+	static int longestSubArray2(int arr[], int n, int k) {
+		int maxLength = 0, right = 0, left = 0, sum = 0;
+		while (right < n) {
+			while (left <= right && sum > k) {
+				sum -= arr[left];
+				left++;	
+			}
+			if (sum == k) {
+				maxLength = Math.max(maxLength, right - left + 1);
+			}
+			right++;
+			if (right < n) {
+				sum += arr[right];
+			}
+		}
+		return maxLength;
+	}
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter number of elements: ");
@@ -64,6 +83,6 @@ public class LongestSubArray {
 			arr1[i] = sc.nextInt();
 
 		}
-		System.out.println(longestSubArray1(arr1, n, k));
+		System.out.println(longestSubArray2(arr1, n, k));
 	}
 }
