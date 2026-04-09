@@ -14,6 +14,8 @@ public class Main {
 		List<String> list2 = Arrays.asList("Monday", "Tuesday");
 		System.out.println(list2.getClass().getName());
 
+		list.addAll(list2);
+		System.out.println(list);
 		String[] strings = { "Apple", "Banana" };
 		List<String> list3 = Arrays.asList(strings);
 		System.out.println(list3.getClass().getName());
