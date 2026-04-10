@@ -11,7 +11,7 @@ class StringLengthComparator implements Comparator<String> {
 	@Override
 	public int compare(String o1, String o2) {
 		// TODO Auto-generated method stub
-		return 0;
+		return o1.length() - o2.length();
 	}
 
 }
@@ -36,31 +36,33 @@ public class Main {
 		arrayList.addLast(3);
 
 		arrayList.sort(new MyComparator());
+		arrayList.sort((a, b) -> b - a);
 		System.out.println(arrayList);
 
-		List<String> words = Arrays.asList("Apple", "Banana", "Orange");
-		words.sort(new StringLengthComparator());
+		List<String> words = Arrays.asList("Apple", "Banana", "kiwi");
+		// words.sort(new StringLengthComparator());
+		words.sort((a, b) -> b.length() - a.length());
 		System.out.println(words);
-
-		arrayList.remove(Integer.valueOf(1));
-
-		Collections.sort(arrayList);
-
-		System.out.println(arrayList);
-
-		Object[] obj = arrayList.toArray();
-		arrayList.toArray(new Integer[0]);
-
-//		List<String> list = new ArrayList<>();
-//		System.out.println(list.getClass().getName());
 //
-//		List<String> list2 = Arrays.asList("Monday", "Tuesday");
-//		System.out.println(list2.getClass().getName());
+//		arrayList.remove(Integer.valueOf(1));
 //
-//		list.addAll(list2);
-//		System.out.println(list);
-//		String[] strings = { "Apple", "Banana" };
-//		List<String> list3 = Arrays.asList(strings);
+//		Collections.sort(arrayList);
+//
+//		System.out.println(arrayList);
+//
+//		Object[] obj = arrayList.toArray();
+//		arrayList.toArray(new Integer[0]);
+//
+////		List<String> list = new ArrayList<>();
+////		System.out.println(list.getClass().getName());
+////
+////		List<String> list2 = Arrays.asList("Monday", "Tuesday");
+////		System.out.println(list2.getClass().getName());
+////
+////		list.addAll(list2);
+////		System.out.println(list);
+////		String[] strings = { "Apple", "Banana" };
+////		List<String> list3 = Arrays.asList(strings);
 //		System.out.println(list3.getClass().getName());
 
 //		ArrayList<Integer> arrayList = new ArrayList<>(11);
