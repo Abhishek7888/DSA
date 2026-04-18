@@ -1,6 +1,5 @@
 package collectionfranework.linkedlist;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 
@@ -39,6 +38,6 @@ public class Test {
 		LinkedList<String> animalsToRemove = new LinkedList<>(Arrays.asList("Dog","Lion"));
 		animals.removeAll(animalsToRemove);
 		System.out.println(animals);
-
+		
 	}
 }
