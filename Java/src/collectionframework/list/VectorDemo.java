@@ -1,4 +1,4 @@
-package collectionframwork.vector;
+package collectionframework.list;
 
 import java.util.LinkedList;
 import java.util.Vector;
