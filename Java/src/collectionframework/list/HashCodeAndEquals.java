@@ -2,6 +2,7 @@ package collectionframework.list;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class HashCodeAndEquals {
 
@@ -15,7 +16,7 @@ public class HashCodeAndEquals {
 
 		hashMap.put(p1, "Engineer");
 		hashMap.put(p2, "Doctor");
-		hashMap.put(p1, "Teacher");
+		hashMap.put(p3, "Engineer");
 
 		Map<String, Integer> map = new HashMap<>();
 		map.put("Abhi", 90);
@@ -24,8 +25,8 @@ public class HashCodeAndEquals {
 
 		System.out.println("HashMap Size : " + hashMap.size());
 		System.out.println("Value of p1 : " + hashMap.get(p1));
-		System.out.println("Valyue of p2 : " + hashMap.get(p3));
-		
+		System.out.println("Value of p3 : " + hashMap.get(p3));
+
 		System.out.println(p1);
 
 	}
@@ -60,7 +61,19 @@ class Person {
 	@Override
 	public boolean equals(Object obj) {
 		// TODO Auto-generated method stub
-		return super.equals(obj);
+
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		Person other = (Person) obj;
+
+		return id == other.getId() && Objects.equals(name, other.getName());
 	}
 
 	@Override
